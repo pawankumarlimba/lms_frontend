@@ -53,7 +53,7 @@ export function RecordPaymentForm({ loan, onRecorded }: RecordPaymentFormProps) 
         label="Amount (₹)"
         name="amount"
         type="number"
-        min={1}
+        min={0.0001}
         step="0.01"
         max={loan.outstandingAmount}
         value={amount}
