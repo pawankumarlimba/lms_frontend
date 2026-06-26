@@ -54,6 +54,7 @@ export function RecordPaymentForm({ loan, onRecorded }: RecordPaymentFormProps) 
         name="amount"
         type="number"
         min={1}
+        step="0.01"
         max={loan.outstandingAmount}
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
