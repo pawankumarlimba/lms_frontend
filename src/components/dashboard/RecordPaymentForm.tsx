@@ -21,6 +21,12 @@ export function RecordPaymentForm({ loan, onRecorded }: RecordPaymentFormProps) 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     setError(null);
+    const parsedAmount = Number(amount);
+
+    if (parsedAmount <= 0) {
+      setError("Amount must be greater than zero");
+      return;
+    }
     setIsSubmitting(true);
     try {
       const result = await collectionApi.recordPayment(loan.id, {
@@ -53,7 +59,6 @@ export function RecordPaymentForm({ loan, onRecorded }: RecordPaymentFormProps) 
         label="Amount (₹)"
         name="amount"
         type="number"
-        min={0.0001}
         step="0.01"
         max={loan.outstandingAmount}
         value={amount}
