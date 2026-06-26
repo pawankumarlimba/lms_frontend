@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Ink - near-black navy, used for the app chrome (sidebar/navbar) */
+  --color-ink-950: #0b1220;
+  --color-ink-900: #11192c;
+  --color-ink-800: #182338;
+
+  /* Navy - brand primary, used for interactive elements on light surfaces */
+  --color-navy-700: #13294b;
+  --color-navy-600: #1c3a66;
+  --color-navy-500: #2b4f86;
+  --color-navy-400: #4068a6;
+
+  /* Paper - warm, slightly muted content surface (NOT a cream hero bg) */
+  --color-paper: #f7f5f0;
+  --color-paper-muted: #efebe1;
+
+  /* Brass - the one accent color, spent deliberately (CTAs, key figures) */
+  --color-brass-600: #9c7820;
+  --color-brass-500: #b8902f;
+  --color-brass-400: #d2ac52;
+  --color-brass-100: #f3e9d2;
+
+  /* Slate - secondary text / chrome on light surfaces */
+  --color-slate-700: #3c4452;
+  --color-slate-500: #5b6472;
+  --color-slate-300: #aab1bd;
+  --color-slate-200: #d9dde3;
+
+  /* Status colors - muted, not saturated stock red/green */
+  --color-success-600: #2f7d5c;
+  --color-success-100: #e2f1ea;
+  --color-danger-600: #a33b2b;
+  --color-danger-100: #f6e6e2;
+  --color-warning-600: #9c7820;
+  --color-warning-100: #f3e9d2;
+
+  --color-border: #e4e0d6;
+
+  /* --font-display / --font-body / --font-mono are supplied by next/font
+     (see app/layout.tsx) via a class on <html> - intentionally not
+     redeclared here to avoid overriding next/font's generated values. */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink-950);
+  font-family: var(--font-body);
+}
+
+/* Visible keyboard focus everywhere - accessibility floor, not optional. */
+:focus-visible {
+  outline: 2px solid var(--color-brass-500);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Ledger rule - the signature device used under key monetary figures,
+   evoking an underlined total on a paper ledger. Applied via the
+   `.ledger-figure` utility class so it's never re-implemented ad hoc. */
+.ledger-figure {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  border-bottom: 2px solid var(--color-brass-500);
+  padding-bottom: 0.125rem;
+}
