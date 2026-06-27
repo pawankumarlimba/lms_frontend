@@ -24,7 +24,7 @@ export default function MyApplicationsPage() {
         <div className="mb-6 flex items-center justify-between">
           <p className="text-body text-slate-500">Track every application you&apos;ve submitted.</p>
           <Link href="/apply/personal-details">
-            <Button variant="accent">New Application</Button>
+            <Button className="" variant="accent">New Application</Button>
           </Link>
         </div>
 
